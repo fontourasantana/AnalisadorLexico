@@ -9,18 +9,6 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q0() {
 		this.qtd=false;
-		/*else if(this.proxCaractereIs(LETRAS)) {
-			leProxCaractere();
-			s4();
-		}
-		else if(this.proxCaractere == PTOVIRG) {
-			leProxCaractere();
-			s5();
-		}
-		else if(this.proxCaractere == EOF) {
-			leProxCaractere();
-			s6();
-		}*/
 		if(this.proxCaractereIs(VAZIOS)) {  
 			leProxCaractere();
 			q0();
@@ -47,7 +35,10 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 		else if(this.proxCaractere == PONTO) {
 			leProxCaractere();
-			numeroReal();
+			if(this.proxCaractereIs(DIGITOS))
+				numeroReal();
+			else
+				throw new ErroLexico(this.proxCaractere, DIGITOS);
 		}
 		else if(this.proxCaractere == DOISPT) {
 			leProxCaractere();

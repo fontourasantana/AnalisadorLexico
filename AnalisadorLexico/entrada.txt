@@ -1,4 +1,4 @@
-while(x>0){
+while(xx.a++y>0){
 	case A:
 	a++;
 	x = 0;
