@@ -1,0 +1,37 @@
+listaComandos -> comando listaComandos | comando
+comando -> while | dowhile | for | switch | if | atribuicao<PTVIR> | expressao<PTVIR>
+bloco -> <ACH>listaComandos<FCH> | comando
+expressao -> expressao<OPERADOR>expressao | <OPUNITARIO>expressao | expressao<OPUNITARIO> | <AP>expressao<FP> | numero
+numero -> sinal<REAL> | sinal<INT> | <REAL> | <INT>
+sinal -> + | -
+while -> <WHILE><AP>expressao<FP>bloco
+dowhile -> <DO>bloco<WHILE><AP>expressao<FP><PTVIR>
+for -> <FOR><AP>atribuicao<PTVIR>expressao<PTVIR>atribuicao<FP>bloco
+switch -> <SWITCH><AP>expressao<FP><ACH>case<FCH>
+case -> <CASE>expressao<DOISPT>bloco case | <CASE>expressao<DOISPT>bloco
+if -> <IF><AP>expressao<FP>bloco
+atribuicao -> <VAR><ATRIBUICAO>expressao
+
+
+-------------------------------------------- TOKENS --------------------------------------------
+<OPUNITARIO> - OPERADORES UNITARIOS (++, --)
+<OPERADOR> - OPERADORES (+, -, *, /, %, ^, &, |, &&, ||, <<, >>, +=, -=, *=, /=, %=, ^=, &=, |=, <<=, >>=, <, >, <=, >=, ==, !=)
+<INT> - REPRESENTA TODOS INTEIROS
+<REAL> - REPRESENTA TODOS OS NUMEROS REAIS
+<PTVIR> - ;
+<IF> - OPERADOR if
+<AP> - (
+<FP> - )
+<ACH> - {
+<FCH> - }
+<WHILE> - OPERADOR while
+<DO> - OPERADOR do
+<FOR> - OPERADOR for
+<SWITCH> - OPERADOR switch
+<CASE> - OPERADOR case
+<DOISPT> - :
+<VAR> - IDENTIFICADOR PARA VARIAVEL
+<ATRIBUICAO> - =
+<EOF> - IDENTIFICADOR DE FIM DE ARQUIVO
+
+λ
