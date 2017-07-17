@@ -2,7 +2,6 @@ import java.io.IOException;
  
 @SuppressWarnings("unused")
 public class MyAnalisadorLexico extends AnalisadorLexico {
-	
 	/**
 	 * @param _nomeArquivoEntrada Nome do arquivo de entrada que será analisado.
 	 */

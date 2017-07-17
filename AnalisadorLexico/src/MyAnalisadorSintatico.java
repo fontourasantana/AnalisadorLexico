@@ -5,7 +5,6 @@
  */
 public class MyAnalisadorSintatico extends AnalisadorSintatico {
 	private boolean _atrib;
-	
 	/**
 	 * @param _nomeArquivoEntrada Nome do arquivo utilizado para fazer a analise lexica/sintatica.
 	 */
