@@ -2,13 +2,20 @@ import java.io.IOException;
  
 @SuppressWarnings("unused")
 public class MyAnalisadorLexico extends AnalisadorLexico {
-	private boolean qtd;
+	
+	/**
+	 * @param _nomeArquivoEntrada Nome do arquivo de entrada que será analisado.
+	 */
 	public MyAnalisadorLexico(String _nomeArquivoEntrada) {
 		super(_nomeArquivoEntrada);
 	}
 	
+	/**
+	 * Responsável por detectar qual o caracter que foi lido e de acordo isso chamar o método correto, caso o caracter lido
+	 * nao seja um dos possivels da gramatica é lançado um erro.
+	 * @throws ErroLexico Erro lançado para avisar que foi lido um caracter não esperado.
+	 */
 	public void q0() {
-		this.qtd=false;
 		if(this.proxCaractereIs(VAZIOS)) {  
 			leProxCaractere();
 			q0();
@@ -67,40 +74,61 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um ';'.
+	 */
 	public void q3() {
-		this.tokenReconhecido = Token.PTVIR;
+		setToken(Token.PTVIR);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um '('.
+	 */
 	public void q4() {
-		this.tokenReconhecido = Token.AP;
+		setToken(Token.AP);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um ')'.
+	 */
 	public void q5() {
-		this.tokenReconhecido = Token.FP;
+		setToken(Token.FP);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um '{'.
+	 */
 	public void q6() {
-		this.tokenReconhecido = Token.ACH;
+		setToken(Token.ACH);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um '}'.
+	 */
 	public void q7() {
-		this.tokenReconhecido = Token.FCH;
+		setToken(Token.FCH);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um ':'.
+	 */
 	public void q8() {
-		this.tokenReconhecido = Token.DOISPT;
+		setToken(Token.DOISPT);
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi um '='.
+	 */
 	public void q9() {
-		this.tokenReconhecido = Token.ATRIBUICAO;
+		setToken(Token.ATRIBUICAO);
 		if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.OPERADOR);
 			leProxCaractere();
-			this.tokenReconhecido = Token.OPERADORBIN;
 		}
 	}
 	
 	public void q10() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'f'){
 			leProxCaractere();
 			q11();
@@ -111,8 +139,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi IF.
+	 */
 	public void q11() {
-		this.tokenReconhecido = Token.IF;
+		setToken(Token.IF);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -120,7 +151,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q12() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'h'){
 			leProxCaractere();
 			q13();
@@ -132,7 +163,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q13() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q14();
@@ -144,7 +175,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q14() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'l'){
 			leProxCaractere();
 			q15();
@@ -156,7 +187,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q15() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'e'){
 			leProxCaractere();
 			q16();
@@ -167,8 +198,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi WHILE.
+	 */
 	public void q16() {
-		this.tokenReconhecido = Token.WHILE;
+		setToken(Token.WHILE);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -176,7 +210,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q17() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'o'){
 			leProxCaractere();
 			q18();
@@ -187,8 +221,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi DO.
+	 */
 	public void q18() {
-		this.tokenReconhecido = Token.DO;
+		setToken(Token.DO);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -196,7 +233,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q19() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'o'){
 			leProxCaractere();
 			q20();
@@ -208,7 +245,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q20() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'r'){
 			leProxCaractere();
 			q21();
@@ -219,8 +256,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi FOR.
+	 */
 	public void q21() {
-		this.tokenReconhecido = Token.FOR;
+		setToken(Token.FOR);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -228,7 +268,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q22() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'w'){
 			leProxCaractere();
 			q23();
@@ -240,7 +280,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q23() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q24();
@@ -252,7 +292,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q24() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 't'){
 			leProxCaractere();
 			q25();
@@ -264,7 +304,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q25() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'c'){
 			leProxCaractere();
 			q26();
@@ -276,7 +316,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q26() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'h'){
 			leProxCaractere();
 			q27();
@@ -287,8 +327,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi SWITCH.
+	 */
 	public void q27() {
-		this.tokenReconhecido = Token.SWITCH;
+		setToken(Token.SWITCH);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -296,7 +339,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q28() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'a'){
 			leProxCaractere();
 			q29();
@@ -308,7 +351,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q29() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 's'){
 			leProxCaractere();
 			q30();
@@ -320,7 +363,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q30() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'e'){
 			leProxCaractere();
 			q31();
@@ -331,8 +374,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi CASE.
+	 */
 	public void q31() {
-		this.tokenReconhecido = Token.CASE;
+		setToken(Token.CASE);
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -340,19 +386,22 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void q32() {
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractereIs(LETRAS+DIGITOS)){
 			leProxCaractere();
 			q32();
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi EOF.
+	 */
 	public void q35() {
-		this.tokenReconhecido = Token.EOF;
+		setToken(Token.EOF);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void palavra(){
-		this.tokenReconhecido = Token.VAR;
+		setToken(Token.VAR);
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q10();
@@ -383,8 +432,11 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi INT.
+	 */
 	public void numero(){
-		this.tokenReconhecido = Token.INT;
+		setToken(Token.INT);
 		if(this.proxCaractere == PONTO){
 			leProxCaractere();
 			numeroReal();
@@ -394,16 +446,23 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 		}
 	}
 	
+	/**
+	 * Responsável por detectar que o token lido foi REAL.
+	 */
 	public void numeroReal(){
-		this.tokenReconhecido = Token.REAL;
+		setToken(Token.REAL);
 		if(this.proxCaractereIs(DIGITOS)) {
 			leProxCaractere();
 			numeroReal();
 		}
 	}
 	
+	///////////////////////// OPERADORES
+	/**
+	 * Responsável por examinar qual operador esta sendo lido e de acordo com isso encaminhar para o metodo para melhor ser
+	 * tratado.
+	 */
 	public void operadores(){
-		this.tokenReconhecido = Token.OPERADORBIN;
 		if(this.proxCaractere == '+'){
 			leProxCaractere();
 			operadorMais();
@@ -416,50 +475,133 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 			leProxCaractere();
 			operadorExclamacao();
 		}
-		else if(this.proxCaractereIs(OPERADORES)){
+		else if(this.proxCaractereIs("*/%^")){
 			leProxCaractere();
-			operadorBinario();
+			conjuntoAtribuicao();
+		}
+		else if(this.proxCaractere == '&'){
+			leProxCaractere();
+			operadorRelacionalE();
+		}
+		else if(this.proxCaractere == '|'){
+			leProxCaractere();
+			operadorRelacionalOU();
+		}
+		else if(this.proxCaractere == '<'){
+			leProxCaractere();
+			operadorRelacionalMenor();
+		}
+		else if(this.proxCaractere == '>'){
+			leProxCaractere();
+			operadorRelacionalMaior();
 		}
 	}
 	
+	/**
+	 * Responsável por avaliar quando dado uma entrada igual '+' de acordo com o proximo caracter lido sera classificado como um
+	 * token MAIS (caso o proximo caracter for algo diferente de '+' ou '='), OPUNITARIO (caso o proximo caracter for '+')
+	 * ou ATRIBUICAO (caso o proximo caracter for '=').
+	 */
 	public void operadorMais(){
-		this.tokenReconhecido = Token.POSITIVO;
+		setToken(Token.MAIS);
 		if(this.proxCaractere == '+'){
-			this.tokenReconhecido = Token.OPERADORUNIT;
+			setToken(Token.OPUNITARIO);
 			leProxCaractere();
 		}
 		else if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.ATRIBUICAO);
 			leProxCaractere();
 		}
 	}
 	
+	/**
+	 * Responsável por avaliar quando dado uma entrada igual '-' de acordo com o proximo caracter lido sera classificado como um
+	 * token MENOS (caso o proximo caracter for algo diferente de '-' ou '='), OPUNITARIO (caso o proximo caracter for '-')
+	 * ou ATRIBUICAO (caso o proximo caracter for '=').
+	 */
 	public void operadorMenos(){
-		this.tokenReconhecido = Token.NEGATIVO;
+		setToken(Token.MENOS);
 		if(this.proxCaractere == '-'){
-			leProxCaractere();
-			this.tokenReconhecido = Token.OPERADORUNIT;
+			setToken(Token.OPUNITARIO);
+			leProxCaractere();			
 		}
 		else if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.ATRIBUICAO);
 			leProxCaractere();
 		}
 	}
 	
+	/**
+	 * Responsável por avaliar quando dado uma entrada igual '!' de acordo com o proximo caracter lido sera classificado como um
+	 * token OPUNITARIO (caso o proximo caracter for algo diferente de '=') ou OPERADOR (caso o proximo caracter for '=').
+	 */
 	public void operadorExclamacao(){
-		this.tokenReconhecido = Token.OPERADORUNIT;
+		setToken(Token.OPUNITARIO);
 		if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.OPERADOR);
 			leProxCaractere();
-			operadorBinario();
 		}
 	}
 	
-	public void operadorBinario(){
-		this.tokenReconhecido = Token.OPERADORBIN;
-		if(this.proxCaractere == ATRIBUICAO)
+	/**
+	 * Responsável por avaliar que dado uma entrada igual (*, /, %, ^) de acordo com o proximo caracter lido sera classificado como um
+	 * token OPERADOR (caso o proximo caracter for algo diferente de '=') ou ATRIBUICAO (caso o proximo caracter for '=').
+	 */
+	public void conjuntoAtribuicao(){
+		setToken(Token.OPERADOR);
+		if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.ATRIBUICAO);
 			leProxCaractere();
-		else if(this.proxCaractereIs("&|<>") && !qtd){
-			qtd=true;
+		}
+	}
+	
+	/**
+	 * Reponsavel por avaliar os operadores relacionais &, && e &=.
+	 */
+	public void operadorRelacionalE(){
+		setToken(Token.OPERADOR);
+		if(this.proxCaractereIs("&=")){
 			leProxCaractere();
-			operadorBinario();
+		}
+	}
+	
+	/**
+	 * Reponsavel por avaliar os operadores relacionais |, || e |=.
+	 */
+	public void operadorRelacionalOU(){
+		setToken(Token.OPERADOR);
+		if(this.proxCaractereIs("|=")){
+			leProxCaractere();
+		}
+	}
+	
+	/**
+	 * Reponsavel por avaliar os operadores relacionais <, <=, << e <<=.
+	 */
+	public void operadorRelacionalMenor(){
+		setToken(Token.OPERADOR);
+		if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.OPERADOR);
+			leProxCaractere();
+		}else if(this.proxCaractere == '<'){
+			leProxCaractere();
+			if(this.proxCaractere == ATRIBUICAO)
+				leProxCaractere();
+		}
+	}
+	
+	/**
+	 * Reponsavel por avaliar os operadores relacionais >, >=, >> e >>=.
+	 */
+	public void operadorRelacionalMaior(){
+		setToken(Token.OPERADOR);
+		if(this.proxCaractere == ATRIBUICAO){
+			setToken(Token.OPERADOR);
+			leProxCaractere();
+		}else if(this.proxCaractere == '>'){
+			leProxCaractere();
+			if(this.proxCaractere == ATRIBUICAO)
+				leProxCaractere();
 		}
 	}
 }

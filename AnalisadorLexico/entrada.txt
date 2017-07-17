@@ -1,9 +1,18 @@
-if(a){
-	for(a=t+2; a < 10; a=2){
-		switch(a+bb+c){
-			case (12-321):{
-				a=2;
-			}
+switch(a){
+	case s:
+	a++;
+}
+x = a + b;
+b = c;
+if ( a > b + c ){
+	c--;
+	for( x = y; x < ++y ; c += 10 );
+		a += b;
+		(A -B) > ee;	
+		switch(variavel){
+			case 2:
+				a++;
+			case 22:
+				b--;
 		}
-	}
 }

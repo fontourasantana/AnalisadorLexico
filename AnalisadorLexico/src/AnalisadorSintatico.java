@@ -32,4 +32,11 @@ public class AnalisadorSintatico extends Analisador implements Constantes {
 			else
 				return false;
 		}
+		
+		public boolean lastTokenIs(Token t){
+			if(t == this.scanner.lastToken)
+				return true;
+			else
+				return false;
+		}
 	}
