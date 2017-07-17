@@ -423,6 +423,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void operadorMais(){
+		this.tokenReconhecido = Token.POSITIVO;
 		if(this.proxCaractere == '+'){
 			this.tokenReconhecido = Token.OPERADORUNIT;
 			leProxCaractere();
@@ -433,6 +434,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	public void operadorMenos(){
+		this.tokenReconhecido = Token.NEGATIVO;
 		if(this.proxCaractere == '-'){
 			leProxCaractere();
 			this.tokenReconhecido = Token.OPERADORUNIT;

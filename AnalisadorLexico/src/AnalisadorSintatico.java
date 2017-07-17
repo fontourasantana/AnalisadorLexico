@@ -5,8 +5,7 @@ public class AnalisadorSintatico extends Analisador implements Constantes {
 	
 	public AnalisadorSintatico(String _nomeArquivoEntrada) {
 		this.scanner = new MyAnalisadorLexico(_nomeArquivoEntrada);
-		// lê o primeiro token e o coloca no campo tokenReconhecido
-		this.leProxToken();
+		this.leProxToken();	// lê o primeiro token e o coloca no campo tokenReconhecido
 	}
 	public AnalisadorSintatico() {
 		super();
