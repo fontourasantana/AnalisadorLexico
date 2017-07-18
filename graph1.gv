@@ -12,7 +12,7 @@ digraph AFD {
 	subgraph cluster1 {
 		node [shape = doublecircle]; 
 		q1              
-		label = "<OP-UN>";
+		label = "<OPUNITARIO>";
 		color=white 
 	}
 	
@@ -20,7 +20,7 @@ digraph AFD {
 	subgraph cluster2 {
 		node [shape = doublecircle]; 
 		q2              
-		label = "<OP-BIN>";
+		label = "<OPERADOR>";
 		color=white 
 	}
 
@@ -270,7 +270,7 @@ digraph AFD {
 	q0 -> q6 [ label = "{" ];
 	q0 -> q7 [ label = "}" ];
 	q0 -> q8 [ label = ":" ];
-	q0 -> q9 [ label = "=" ];
+	q0 -> q9 [ label = "conjuntoAtribuicao" ];
 	q0 -> q10 [ label = "i" ]; q10 -> q11 [ label = "f" ];
 	q0 -> q12 [ label = "w"]; q12 -> q13 [ label = "h"]; q13 -> q14 [ label = "i"]; q14 -> q15 [ label = "l"]; q15 -> q16 [ label = "e"];
 	q0 -> q17 [ label = "d"]; q17 -> q18 [ label = "o"];

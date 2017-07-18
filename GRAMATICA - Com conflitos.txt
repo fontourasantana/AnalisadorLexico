@@ -1,7 +1,7 @@
 listaComandos -> comando listaComandos | comando
 comando -> while | dowhile | for | switch | if | atribuicao<PTVIR> | expressao<PTVIR>
 bloco -> <ACH>listaComandos<FCH> | comando
-expressao -> expressao<OPERADOR>expressao | <OPUNITARIO>expressao | expressao<OPUNITARIO> | <AP>expressao<FP> | numero
+expressao -> expressao<OPERADOR>expressao | <OPUNITARIO>expressao | expressao<OPUNITARIO> | <AP>expressao<FP> | numero | <VAR>
 numero -> sinal<REAL> | sinal<INT> | <REAL> | <INT>
 sinal -> + | -
 while -> <WHILE><AP>expressao<FP>bloco
