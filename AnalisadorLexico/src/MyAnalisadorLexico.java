@@ -15,6 +15,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 * @throws ErroLexico Erro lançado para avisar que foi lido um caracter não esperado.
 	 */
 	public void q0() {
+		setTokenLenght(0);
 		if(this.proxCaractereIs(VAZIOS)) {  
 			leProxCaractere();
 			q0();
@@ -44,7 +45,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 			if(this.proxCaractereIs(DIGITOS))
 				numeroReal();
 			else
-				throw new ErroLexico(this.proxCaractere, DIGITOS);
+				throw new ErroLexico(this.proxCaractere, DIGITOS, this.getLinha(), this.getColuna());
 		}
 		else if(this.proxCaractere == DOISPT) {
 			leProxCaractere();
@@ -69,7 +70,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 			q35();
 		}
 		else {
-			throw new ErroLexico(this.proxCaractere, DIGITOS+LETRAS+OPERADORES+ATRIBUICAO+AP+FP+ACH+FCH+PTVIR+PONTO+DOISPT);
+			throw new ErroLexico(this.proxCaractere, DIGITOS+LETRAS+OPERADORES+ATRIBUICAO+AP+FP+ACH+FCH+PTVIR+PONTO+DOISPT, this.getLinha(), this.getColuna());
 		}
 	}
 	
@@ -78,6 +79,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q3() {
 		setToken(Token.PTVIR);
+		setTokenLenght();
 	}
 	
 	/**
@@ -85,6 +87,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q4() {
 		setToken(Token.AP);
+		setTokenLenght();
 	}
 	
 	/**
@@ -92,6 +95,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q5() {
 		setToken(Token.FP);
+		setTokenLenght();
 	}
 	
 	/**
@@ -99,6 +103,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q6() {
 		setToken(Token.ACH);
+		setTokenLenght();
 	}
 	
 	/**
@@ -106,6 +111,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q7() {
 		setToken(Token.FCH);
+		setTokenLenght();
 	}
 	
 	/**
@@ -113,6 +119,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q8() {
 		setToken(Token.DOISPT);
+		setTokenLenght();
 	}
 	
 	/**
@@ -120,14 +127,17 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q9() {
 		setToken(Token.ATRIBUICAO);
+		setTokenLenght();
 		if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.OPERADOR);
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
 	
 	public void q10() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'f'){
 			leProxCaractere();
 			q11();
@@ -143,6 +153,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q11() {
 		setToken(Token.IF);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -151,6 +162,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q12() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'h'){
 			leProxCaractere();
 			q13();
@@ -163,6 +175,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q13() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q14();
@@ -175,6 +188,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q14() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'l'){
 			leProxCaractere();
 			q15();
@@ -187,6 +201,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q15() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'e'){
 			leProxCaractere();
 			q16();
@@ -202,6 +217,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q16() {
 		setToken(Token.WHILE);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -210,6 +226,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q17() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'o'){
 			leProxCaractere();
 			q18();
@@ -225,6 +242,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q18() {
 		setToken(Token.DO);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -233,6 +251,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q19() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'o'){
 			leProxCaractere();
 			q20();
@@ -245,6 +264,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q20() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'r'){
 			leProxCaractere();
 			q21();
@@ -260,6 +280,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q21() {
 		setToken(Token.FOR);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -268,6 +289,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q22() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'w'){
 			leProxCaractere();
 			q23();
@@ -280,6 +302,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q23() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q24();
@@ -292,6 +315,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q24() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 't'){
 			leProxCaractere();
 			q25();
@@ -304,6 +328,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q25() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'c'){
 			leProxCaractere();
 			q26();
@@ -316,6 +341,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q26() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'h'){
 			leProxCaractere();
 			q27();
@@ -331,6 +357,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q27() {
 		setToken(Token.SWITCH);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -339,6 +366,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q28() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'a'){
 			leProxCaractere();
 			q29();
@@ -351,6 +379,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q29() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 's'){
 			leProxCaractere();
 			q30();
@@ -363,6 +392,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q30() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'e'){
 			leProxCaractere();
 			q31();
@@ -378,6 +408,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void q31() {
 		setToken(Token.CASE);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS)){
 			leProxCaractere();
 			q32();
@@ -386,6 +417,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	
 	public void q32() {
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractereIs(LETRAS+DIGITOS)){
 			leProxCaractere();
 			q32();
@@ -401,6 +433,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void palavra(){
 		setToken(Token.VAR);
+		setTokenLenght();
 		if(this.proxCaractere == 'i'){
 			leProxCaractere();
 			q10();
@@ -436,6 +469,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void numero(){
 		setToken(Token.INT);
+		setTokenLenght();
 		if(this.proxCaractere == PONTO){
 			leProxCaractere();
 			numeroReal();
@@ -450,6 +484,7 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void numeroReal(){
 		setToken(Token.REAL);
+		setTokenLenght();
 		if(this.proxCaractereIs(DIGITOS)) {
 			leProxCaractere();
 			numeroReal();
@@ -503,12 +538,15 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorMais(){
 		setToken(Token.MAIS);
+		setTokenLenght();
 		if(this.proxCaractere == '+'){
 			setToken(Token.OPUNITARIO);
+			setTokenLenght();
 			leProxCaractere();
 		}
 		else if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.ATRIBUICAO);
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -520,12 +558,15 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorMenos(){
 		setToken(Token.MENOS);
+		setTokenLenght();
 		if(this.proxCaractere == '-'){
 			setToken(Token.OPUNITARIO);
+			setTokenLenght();
 			leProxCaractere();			
 		}
 		else if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.ATRIBUICAO);
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -536,8 +577,10 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorExclamacao(){
 		setToken(Token.OPUNITARIO);
+		setTokenLenght();
 		if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.OPERADOR);
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -548,8 +591,10 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void conjuntoAtribuicao(){
 		setToken(Token.OPERADOR);
+		setTokenLenght();
 		if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.ATRIBUICAO);
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -559,7 +604,9 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorRelacionalE(){
 		setToken(Token.OPERADOR);
+		setTokenLenght();
 		if(this.proxCaractereIs("&=")){
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -569,7 +616,9 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorRelacionalOU(){
 		setToken(Token.OPERADOR);
+		setTokenLenght();
 		if(this.proxCaractereIs("|=")){
+			setTokenLenght();
 			leProxCaractere();
 		}
 	}
@@ -579,13 +628,18 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorRelacionalMenor(){
 		setToken(Token.OPERADOR);
+		setTokenLenght();
 		if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.OPERADOR);
+			setTokenLenght();
 			leProxCaractere();
 		}else if(this.proxCaractere == '<'){
+			setTokenLenght();
 			leProxCaractere();
-			if(this.proxCaractere == ATRIBUICAO)
+			if(this.proxCaractere == ATRIBUICAO){
+				setTokenLenght();
 				leProxCaractere();
+			}
 		}
 	}
 	
@@ -594,13 +648,17 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	 */
 	public void operadorRelacionalMaior(){
 		setToken(Token.OPERADOR);
+		setTokenLenght();
 		if(this.proxCaractere == ATRIBUICAO){
 			setToken(Token.OPERADOR);
 			leProxCaractere();
 		}else if(this.proxCaractere == '>'){
+			setTokenLenght();
 			leProxCaractere();
-			if(this.proxCaractere == ATRIBUICAO)
+			if(this.proxCaractere == ATRIBUICAO){
+				setTokenLenght();
 				leProxCaractere();
+			}
 		}
 	}
 }

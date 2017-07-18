@@ -6,9 +6,9 @@ x = a + b;
 b = c;
 if ( a > b + c ){
 	c--;
-	for( x = y; x < ++y ; c += 10 );
+	for( x = y; x << ++y ; c += +-10);
 		a += b;
-		(A -B) > ee;	
+		(A -B) > ee;
 		switch(variavel){
 			case 2:
 				a++;

@@ -17,11 +17,11 @@ public class AnalisadorSintatico extends Analisador implements Constantes {
 
 		// verifica se o próximo token é t
 		// avança o ponteiro para o próximo token
-		public void reconhece(Token t) {
+		public void reconhece(Token t){
 			if(t == this.scanner.tokenReconhecido) 
 				this.leProxToken();
 			else
-				throw new ErroSintatico(this.scanner.tokenReconhecido, t);
+				throw new ErroSintatico(this.scanner.tokenReconhecido, t, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 		}
 
 		// verifica se o próximo token é t

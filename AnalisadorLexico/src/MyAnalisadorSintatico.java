@@ -34,7 +34,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 		}
 		else {
 			Token[] tokensEsperados = {Token.WHILE, Token.DO, Token.FOR, Token.SWITCH, Token.IF, Token.VAR, Token.INT, Token.REAL, Token.AP, Token.EOF};
-			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados);
+			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 				leProxToken();
 			else {
 				Token[] tokensEsperados = {Token.OPERADOR, Token.PTVIR};
-				throw new ErroSintatico(this.scanner.tokenReconhecido, tokensEsperados);
+				throw new ErroSintatico(this.scanner.tokenReconhecido, tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 			}
 			_atrib=false;
 		}else{
@@ -106,7 +106,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 					numero();
 				else {
 					Token[] tokensEsperados = {Token.INT, Token.REAL, Token.VAR};
-					throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados);
+					throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 				}
 				R2();
 		}
@@ -116,7 +116,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 			R2();
 		} else {
 			Token[] tokensEsperados = {Token.INT, Token.REAL, Token.VAR};
-			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados);
+			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 		}
 	}
 	
@@ -145,7 +145,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 				expressao();
 			}else {
 				Token[] tokensEsperados = {Token.OPERADOR, Token.PTVIR};
-				throw new ErroSintatico(this.scanner.tokenReconhecido, tokensEsperados);
+				throw new ErroSintatico(this.scanner.tokenReconhecido, tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 			}
 		}
 	}
@@ -173,7 +173,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 			reconhece(Token.REAL);
 		else {
 			Token[] tokensEsperados = {Token.INT, Token.REAL};
-			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados);
+			throw new ErroSintatico(this.scanner.tokenReconhecido,tokensEsperados, this.scanner.getLinha(), this.scanner.getColuna(), this.scanner.getTokenLenght());
 		}
 		R2();
 	}

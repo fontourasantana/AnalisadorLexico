@@ -10,10 +10,10 @@ public class TesteAnalisadorLexico {
 			System.out.println("Análise realizada com sucesso no arquivo " + parser.nomeArquivoEntrada);
 		}
 		catch(ErroLexico e) {
-			System.out.println("Erro léxico: "+e.toString());
+			System.out.println("(ERRO LÉXICO)\n"+e.toString());
 		}
 		catch(ErroSintatico e) {
-			System.out.println("Erro sintático: "+e.toString());
+			System.out.println("(ERRO SINTÁTICO)\n"+e.toString());
 		}
 		catch(RuntimeException e) {
 			System.out.println("Erro: "+e.getMessage());

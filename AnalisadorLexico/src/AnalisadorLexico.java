@@ -3,7 +3,9 @@ import java.io.IOException;
  
 public class AnalisadorLexico extends Analisador {
 	protected char proxCaractere;  // caractere disponível no cabeçote de leitura
-	protected int linha = 1;  // linha atual do arquivo fonte
+	private int linha = 1;  // linha atual do arquivo fonte
+	private int coluna = 0; // coluna atual do arquivo fonte
+	private int tokenLenght = 0; // sera utilizado para mapear o erro sintatico posteriormente
 	protected StringBuffer entrada = new StringBuffer(); // armazena o conteúdo do arquivo
 	protected int posicao = 0; // posição do caractere a ser lido na entrada  
 	protected Token tokenReconhecido, lastToken; // último token lido
@@ -35,10 +37,35 @@ public class AnalisadorLexico extends Analisador {
 	public void leProxCaractere() {
 		try {
 			this.proxCaractere = this.entrada.charAt(this.posicao++);
+			this.coluna++;
+			if(this.proxCaractere == '\n'){
+				this.linha++;
+				this.coluna=0;
+			}
 		}
 		catch(IndexOutOfBoundsException e) {
 			this.proxCaractere = EOF;
 		}
+	}
+	
+	public void setTokenLenght(){
+		this.tokenLenght++;
+	}
+	
+	public void setTokenLenght(int valor){
+		this.tokenLenght=valor;
+	}
+	
+	public int getTokenLenght(){
+		return this.tokenLenght;
+	}
+	
+	public int getLinha(){
+		return this.linha;
+	}
+	
+	public int getColuna(){
+		return this.coluna;
 	}
 	
 	// verifica se o próximo caractere é um dos que estão em ‘s’
