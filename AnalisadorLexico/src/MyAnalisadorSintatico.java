@@ -13,6 +13,13 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 	}
 	
 	/**
+	 * @param _nomeArquivoEntrada A entrada montada em um StringBuffer no qual será analisado.
+	 */
+	public MyAnalisadorSintatico(StringBuffer entrada){
+		super(entrada);
+	}
+	
+	/**
 	 * Método qual é iniciado o programa.
 	 */
 	public void inicio() {

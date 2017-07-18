@@ -10,6 +10,13 @@ public class MyAnalisadorLexico extends AnalisadorLexico {
 	}
 	
 	/**
+	 * @param entrada A entrada montada em um StringBuffer no qual será analisado.
+	 */
+	public MyAnalisadorLexico(StringBuffer entrada){
+		super(entrada);
+	}
+	
+	/**
 	 * Responsável por detectar qual o caracter que foi lido e de acordo isso chamar o método correto, caso o caracter lido
 	 * nao seja um dos possivels da gramatica é lançado um erro.
 	 * @throws ErroLexico Erro lançado para avisar que foi lido um caracter não esperado.

@@ -11,6 +11,12 @@ public class AnalisadorLexico extends Analisador {
 	protected Token tokenReconhecido, lastToken; // último token lido
 	
 	// transfere o arquivo para o buffer ‘entrada’
+	public AnalisadorLexico(StringBuffer entrada){
+		super(entrada);
+		this.entrada = entrada;
+		leProxCaractere();
+	}
+	
 	public AnalisadorLexico(String _nomeArquivoEntrada) {
 		super(_nomeArquivoEntrada);
 		try {
@@ -36,12 +42,12 @@ public class AnalisadorLexico extends Analisador {
 	
 	public void leProxCaractere() {
 		try {
-			this.proxCaractere = this.entrada.charAt(this.posicao++);
-			this.coluna++;
 			if(this.proxCaractere == '\n'){
 				this.linha++;
 				this.coluna=0;
 			}
+			this.proxCaractere = this.entrada.charAt(this.posicao++);
+			this.coluna++;
 		}
 		catch(IndexOutOfBoundsException e) {
 			this.proxCaractere = EOF;

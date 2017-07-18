@@ -6,7 +6,7 @@ x = a + b;
 b = c;
 if ( a > b + c ){
 	c--;
-	for( x = y; x << ++y ; c += +-10);
+	for( x = y; x << ++y ; c += 10 + --a);
 		a += b;
 		(A -B) > ee;
 		switch(variavel){
