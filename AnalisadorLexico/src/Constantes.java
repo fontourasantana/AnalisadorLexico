@@ -3,7 +3,7 @@ public interface Constantes {
 		enum Token {  EOF, AP, FP, ACH, FCH, PTVIR, DOISPT, PONTO, IF, WHILE, DO, FOR, SWITCH, CASE, OPERADOR, OPUNITARIO, VAR, ATRIBUICAO, INT, REAL, MAIS, MENOS };
 	 
 		String 	DIGITOS	= "0123456789",
-					LETRAS	= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+					LETRAS	= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",
 					OPERADORES = "*/%^&|<>",
 					VAZIOS	= " \r\n\t";
 	 
