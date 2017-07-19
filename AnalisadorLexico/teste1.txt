@@ -1,0 +1,17 @@
+switch(a){
+	case 123:{
+		if(a < 0 && b > 0){
+			for(a=0; a < 10; ++a);
+			while((a == 0) && (b == 0))
+				a = -a + b - ++b;
+			a = 2;
+			do{
+				teste = 0;
+				if(teste <<= 1)
+					operador++;
+				++teste;
+				a = -a - b + --b;
+			}while(variavel >= 5);
+		}
+	}
+}

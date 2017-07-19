@@ -60,7 +60,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 			_switch();
 		else if(proxTokenIs(Token.IF))
 			_if();
-		else if(proxTokenIs(Token.VAR) || proxTokenIs(Token.AP) || proxTokenIs(Token.INT) || proxTokenIs(Token.REAL)){
+		else if(proxTokenIs(Token.VAR) || proxTokenIs(Token.AP) || proxTokenIs(Token.INT) || proxTokenIs(Token.REAL) || proxTokenIs(Token.OPUNITARIO)){
 			expressao();
 			if(proxTokenIs(Token.PTVIR) || proxTokenIs(Token.OPERADOR))
 				leProxToken();
@@ -97,6 +97,7 @@ public class MyAnalisadorSintatico extends AnalisadorSintatico {
 			reconhece(Token.AP);
 			expressao();
 			reconhece(Token.FP);
+			R2();
 		}
 		else if(proxTokenIs(Token.INT) || proxTokenIs(Token.REAL)){
 			numero();

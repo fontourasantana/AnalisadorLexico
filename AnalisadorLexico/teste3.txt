@@ -1,0 +1,31 @@
+switch(a){
+	case 123:{
+		if(a < 0 && b > 0){
+			for(a=0; a < 10; ++a);
+			while((a == 0) && (b == 0))
+				a = -a + b - ++b;
+			a = 2;
+			do{
+				teste = 0;
+				if(teste <<= 1)
+					operador++;
+				++teste;
+				a = -a - b + --b;
+			}while(variavel >= 5);
+		}
+	}
+	case var:{
+		if(a < 0 && b > 0){
+			if(a == b && b == a)
+				a = 3 + --a;
+			b = 232;
+			a++;
+			b++;
+			for(i; i++; i++);
+			switch(123){
+				case a:
+					a = b < --0;
+			}
+		}
+	}
+}
