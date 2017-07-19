@@ -2,7 +2,7 @@ inicio -> listaComandos <EOF>
 listaComandos -> comando listaComandos | λ
 comando -> while | dowhile | for | switch | if | expressao<PTVIR>
 bloco -> <ACH>listaComandos<FCH> | comando
-expressao ->  <AP>expressao<FP> | numero R2 | sinal <VAR> R1 R2 | <OPUNITARIO><VAR> R2
+expressao ->  <AP>expressao<FP> R2 | numero R2 | sinal <VAR> R1 R2 | <OPUNITARIO><VAR> R2
 R1 -> <OPUNITARIO> | <ATRIBUICAO> | λ
 R2 -> <OPERADOR>expressao R2 | λ
 numero -> sinal tipo
@@ -36,5 +36,5 @@ if -> <IF><AP>expressao<FP>bloco
 <CASE> - OPERADOR case
 <DOISPT> - :
 <VAR> - IDENTIFICADOR PARA VARIAVEL
-<ATRIBUICAO> - OPERADORES (+=, -=, *=, /=, %=, ^=)
+<ATRIBUICAO> - OPERADORES (=, +=, -=, *=, /=, %=, ^=)
 <EOF> - IDENTIFICADOR DE FIM DE ARQUIVO
